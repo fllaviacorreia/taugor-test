@@ -13,8 +13,6 @@ import {
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import firebase from '@/config/firebase';
 import Copyright from '@/components/copyright';
 
 import GridLink from '@/components/gridLink';
@@ -25,10 +23,8 @@ import './style.css';
 
 const theme = createTheme();
 
-export default function Login() {
-  // const auth = getAuth(firebase);
-  console.log("api_key",process.env.REACT_APP_API_KEY)
-  const uri = window.location.href.split('login')[0];
+export default function ForgotPassword() {
+  const uri = window.location.href.split('forgot-password')[0];
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,24 +36,30 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider theme={ theme }>
+    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
-          sx={ {
+          sx={{
             marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-          } }
+            justifyContent: "center"
+          }}
         >
-          <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
-            <img src={ icon } alt="icon bussness" width={ 50 } />
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <img src={icon} alt="icon bussness" width={50} />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login
+            Recuperar senha
           </Typography>
-          <Box component="form" onSubmit={ handleSubmit } noValidate sx={ { mt: 1 } }>
+          <Box component="form" onSubmit={handleSubmit} noValidate
+            sx={{
+              marginTop: 1,
+              alignItems: 'center',
+              justifyContent: "center"
+            }}>
             <TextField
               margin="normal"
               required
@@ -68,33 +70,21 @@ export default function Login() {
               autoComplete="email"
               autoFocus
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Sua senha"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
+
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={ { mt: 3, mb: 2 } }
+              sx={{ mt: 3, mb: 2 }}
             >
-              Entrar
+              Enviar email
             </Button>
-            <Grid container justifyContent="space-between">
-              <Grid>
-                <GridLink link={uri+"forgot-password"} title="Esqueci minha senha" />
-              </Grid>
-              <Grid>
-                <GridLink link={uri+"register"} title="Não possuo cadastro" />
-              </Grid>
+
+            <Grid container justifyContent="flex-end">
+              <GridLink link={uri + "login"} title="Cancelar" />
             </Grid>
           </Box>
+
         </Box>
         <Copyright link="#" title="Taugor Test" />
       </Container>
