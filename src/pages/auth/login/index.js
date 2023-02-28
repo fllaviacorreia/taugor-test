@@ -3,30 +3,23 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
+// import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import "./style.css";
 
-function Copyright(props) {
-    return (
-      <Typography variant="body2" color="text.secondary" align="center" {...props}>
-        {'Copyright © '}
-        <Link color="inherit" href="https://mui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
+import Copyright from "@/components/copyright";
+import GridLink from '@/components/gridLink';
+
+import icon from "@/assets/taugor-icon.jpeg";
+
+import "./style.css";
   
   const theme = createTheme();
 
@@ -53,10 +46,10 @@ export default function Login(){
               }}
             >
               <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                <LockOutlinedIcon />
+                <img src={icon} alt="icon bussness" width={50}/>
               </Avatar>
               <Typography component="h1" variant="h5">
-                Sign in
+                Login
               </Typography>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                 <TextField
@@ -64,7 +57,7 @@ export default function Login(){
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Seu e-mail"
                   name="email"
                   autoComplete="email"
                   autoFocus
@@ -74,38 +67,27 @@ export default function Login(){
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Sua senha"
                   type="password"
                   id="password"
                   autoComplete="current-password"
                 />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
                 <Button
                   type="submit"
-                  fullWidth
+                  size='large'
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+
+                  sx={{ mt: 3, mb: 2}}
                 >
-                  Sign In
+                  Entrar
                 </Button>
-                <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
-                    </Link>
-                  </Grid>
-                  <Grid item>
-                    <Link href="#" variant="body2">
-                      {"Don't have an account? Sign Up"}
-                    </Link>
-                  </Grid>
+                <Grid container justifyContent={'space-between'}>
+                  <GridLink link="#" title="Esqueci minha senha"/>                  
+                  <GridLink link="#" title="Não possuo cadastro"/>
                 </Grid>
               </Box>
             </Box>
-            <Copyright sx={{ mt: 8, mb: 4 }} />
+            <Copyright title="Taugor Test"/>
           </Container>
         </ThemeProvider>
       );
