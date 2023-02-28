@@ -1,11 +1,21 @@
-import { Grid, Link } from "@mui/material";
+import React from 'react';
+import { Grid } from '@mui/material';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function GridLink({link, title}) {
+function GridLink({ link, title }) {
   return (
     <Grid item>
-      <Link href={link}variant="body2">
+      <Link to={ link }>
         {title}
       </Link>
     </Grid>
-  )
+  );
 }
+
+GridLink.propTypes = {
+  link: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+export default GridLink;
