@@ -1,15 +1,10 @@
-import Login from "@/pages/auth/login";
-import Register from "@/pages/auth/register";
-import Home from "@/pages/home";
-import './App.css';
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import Router from '@/routes';
 
 function App() {
   return (
-    <div className="App">      
-      <Login/>
-      <Register/>
-      <Home/>
-    </div>
+    <RouterProvider router={ Router } />
   );
 }
 
