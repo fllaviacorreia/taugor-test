@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.10",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -20,7 +21,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx",
+    "lint:styles": "npx stylelint '**/*.css'"
   },
   "jest": {
     "modulePaths": [
@@ -60,8 +63,9 @@
   },
   "devDependencies": {
     "customize-cra": "^1.0.0",
-    "eslint": "^8.35.0",
-    "eslint-plugin-react": "^7.32.2",
-    "react-app-rewired": "^2.2.1"
+    "@trybe/eslint-config-frontend":"^1.7.0",
+    "react-app-rewired": "^2.2.1",
+    "stylelint": "14.9.1",
+    "stylelint-config-standard": "26.0.0"
   }
 }
