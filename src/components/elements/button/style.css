@@ -1,0 +1,48 @@
+.input-button, .input-transparent-button {
+    display: flex;text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    padding: 6px 5%;
+    margin: 17px;
+    min-width: 10rem;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 300;
+    font-size: 12px;
+        
+}
+
+.input-button{
+    color: #fff;
+    background-color: rgb(25 118 210);;
+    border: none;
+    
+}
+
+
+.input-button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+.input-transparent-button {
+    color: #000;
+    background-color: transparent;
+    border: .5px solid rgb(25 118 210);
+    
+    
+}
+
+.small-button {
+    min-width: auto;
+    font-size: 0.6rem;
+    font-weight: 200;
+    padding: 7px 1.4%;
+}
