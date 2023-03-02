@@ -9,6 +9,8 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
 const authReducer = (state = authDefault, action) => {
+    console.log(action)
+    console.log(state)
     switch (action.type) {
         case LOGIN:
             return {
@@ -19,6 +21,7 @@ const authReducer = (state = authDefault, action) => {
                 },
             };
         case LOGOUT:
+            localStorage.removeItem('user');
             return {
                 auth: {
                     ...state.auth,
