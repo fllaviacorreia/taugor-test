@@ -13,26 +13,45 @@ import {
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import Copyright from '@/components/copyright';
+import Copyright from '@/components/elements/copyright';
 
-import GridLink from '@/components/gridLink';
+import GridLink from '@/components/elements/gridLink';
 
 import icon from '@/assets/taugor-icon.jpeg';
 
 import './style.css';
+import { auth } from '@/config/firebase';
 
 const theme = createTheme();
 
 export default function ForgotPassword() {
   const uri = window.location.href.split('forgot-password')[0];
 
-  const handleSubmit = (event) => {
+  const [message, setMessage] = React.useState({ messageUser: '', error: false, });
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const email = data.get('email');
+
+    if (!email) {
+      setMessage({ messageUser: "E-mail e/ou senha não preenchidos.", error: true });
+    } else {
+      setMessage({ messageUser: '', error: false })
+      await auth.sendPasswordResetEmail(email)
+        .then(function () {
+          setMessage({
+            messageUser: 'Verifique seu email.',
+            error: false
+          });
+
+        })
+        .catch((error) => {
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
+          setMessage({ messageUser: error.code, error: true });
+        });
+    }
   };
 
   return (
@@ -42,24 +61,18 @@ export default function ForgotPassword() {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: "center"
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Grid sx={{display:'flex',flexDirection:'column', alignItems:'center'}}>
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <img src={icon} alt="icon bussness" width={50} />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Recuperar senha
+            Recuperar conta
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate
-            sx={{
-              marginTop: 1,
-              alignItems: 'center',
-              justifyContent: "center"
-            }}>
+          </Grid>
+          
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -70,22 +83,20 @@ export default function ForgotPassword() {
               autoComplete="email"
               autoFocus
             />
-
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <Typography component="h6" variant="h6" color={message.error ? 'red' : 'green'} fontSize={15}>
+              {message.messageUser}
+            </Typography>
+            <Button type="submit" fullWidth variant="contained"sx={{ mt: 3, mb: 2 }}>
               Enviar email
             </Button>
-
-            <Grid container justifyContent="flex-end">
-              <GridLink link={uri + "login"} title="Cancelar" />
-            </Grid>
           </Box>
-
+          
         </Box>
+        <Grid container justifyContent="space-between">
+              <Grid>
+                <GridLink link={uri + "login"} title="Cancelar" />
+              </Grid>
+            </Grid>
         <Copyright link="#" title="Taugor Test" />
       </Container>
     </ThemeProvider>
