@@ -12,23 +12,21 @@ import {
 } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import Copyright from '@/components/copyright';
+import Copyright from '@/components/elements/copyright';
 import icon from '@/assets/taugor-icon.jpeg';
-import GridLink from '@/components/gridLink';
+import GridLink from '@/components/elements/gridLink';
+import { useNavigate } from 'react-router-dom';
+
+import register from './register';
 
 const theme = createTheme();
 
 export default function Register() {
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = React.useState('');
   const uri = window.location.href.split('register')[0];
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
- };
+  const handleSubmit = async (event) => register(event, setErrorMessage, navigate);
 
   return (
     <ThemeProvider theme={ theme }>
@@ -57,7 +55,7 @@ export default function Register() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="Seu nome"
                   autoFocus
                 />
               </Grid>
@@ -66,7 +64,7 @@ export default function Register() {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  label="Seu sobrenome"
                   name="lastName"
                   autoComplete="family-name"
                 />
@@ -76,7 +74,7 @@ export default function Register() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Seu e-mail"
                   name="email"
                   autoComplete="email"
                 />
@@ -86,7 +84,7 @@ export default function Register() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Sua senha"
                   type="password"
                   id="password"
                   autoComplete="new-password"
@@ -94,14 +92,11 @@ export default function Register() {
               </Grid>
               <Grid item xs={ 12 } />
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={ { mt: 3, mb: 2 } }
-
-            >
-              Sign Up
+            <Typography component="h6" variant="h6" color={'red'} fontSize={15}>
+              {errorMessage}
+            </Typography>
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+              Cadastrar
             </Button>
             <Grid container justifyContent="flex-end">
               <GridLink link={uri+"login"} title="Já possuo cadastro" />
