@@ -1,0 +1,8 @@
+.containerListEmployees{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.containerTable{
+    padding:20px;
+}
