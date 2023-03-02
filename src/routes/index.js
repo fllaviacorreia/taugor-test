@@ -1,40 +1,41 @@
 import React from 'react';
-
-import { createBrowserRouter } from 'react-router-dom';
-
+import { BrowserRouter, Route, Routes, Outlet, Navigate } from "react-router-dom";
+import Root from '@/pages/root';
 import Login from '@/pages/auth/login';
 import Register from '@/pages/auth/register';
-import Root from '@/pages/root';
 import Home from '@/pages/home';
 import ErrorPage from '@/pages/errorPage';
 import ForgotPassword from '@/pages/auth/forgotPassword';
+import Employees from '@/pages/employee';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: 'login',
-    element: <Login />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: 'forgot-password',
-    element: <ForgotPassword />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: 'register',
-    element: <Register />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: 'home',
-    element: <Home />,
-    errorElement: <ErrorPage />,
-  },
-]);
+import { isAuthenticated } from '@/config/auth';
 
-export default router;
+const PrivateRoute = () => (
+  isAuthenticated() ? <Outlet /> : <Navigate to="/login" />
+);
+
+const Routes1 = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<Root />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path='/home' element={<PrivateRoute />}>
+        <Route exact path='/home' element={<Home />} />
+      </Route>
+      <Route path='/employees' element={<PrivateRoute />}>
+        <Route exact path='/employees' element={<Employees />} />
+      </Route>
+      <Route path='/employees/create' element={<PrivateRoute />}>
+        <Route exact path='/employees/create' element={<Employees />} />
+      </Route>
+      <Route path='/employees/edit/:id' element={<PrivateRoute />}>
+        <Route exact path='/employees/edit/:id' element={<Employees />} />
+      </Route>
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
+  </BrowserRouter>
+);
+
+export default Routes1;
