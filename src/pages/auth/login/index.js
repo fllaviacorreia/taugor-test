@@ -10,7 +10,7 @@ import Copyright from '@/components/elements/copyright';
 import GridLink from '@/components/elements/gridLink';
 import icon from '@/assets/taugor-icon.jpeg';
 import './style.css';
-import loginUser from './login';
+import loginUser from '@/services/login';
 
 const theme = createTheme();
 
@@ -41,6 +41,7 @@ export default function Login() {
               required
               fullWidth
               id="email"
+              type="email"
               label="Seu e-mail"
               name="email"
               autoComplete="email"

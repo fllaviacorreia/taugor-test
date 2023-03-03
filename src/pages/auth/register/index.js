@@ -17,7 +17,7 @@ import icon from '@/assets/taugor-icon.jpeg';
 import GridLink from '@/components/elements/gridLink';
 import { useNavigate } from 'react-router-dom';
 
-import register from './register';
+import register from '@/services/registerNewUser';
 
 const theme = createTheme();
 
@@ -74,6 +74,7 @@ export default function Register() {
                   required
                   fullWidth
                   id="email"
+                  type="email"
                   label="Seu e-mail"
                   name="email"
                   autoComplete="email"

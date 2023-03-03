@@ -8,10 +8,10 @@ import {
   CssBaseline,
   Grid,
   TextField,
-  Typography,
+  Typography, 
+  createTheme, 
+  ThemeProvider 
 } from '@mui/material';
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import Copyright from '@/components/elements/copyright';
 
@@ -20,7 +20,7 @@ import GridLink from '@/components/elements/gridLink';
 import icon from '@/assets/taugor-icon.jpeg';
 
 import './style.css';
-import { auth } from '@/config/firebase';
+import forgotPass from '@/services/forgotPass';
 
 const theme = createTheme();
 
@@ -29,30 +29,7 @@ export default function ForgotPassword() {
 
   const [message, setMessage] = React.useState({ messageUser: '', error: false, });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const email = data.get('email');
-
-    if (!email) {
-      setMessage({ messageUser: "E-mail e/ou senha não preenchidos.", error: true });
-    } else {
-      setMessage({ messageUser: '', error: false })
-      await auth.sendPasswordResetEmail(email)
-        .then(function () {
-          setMessage({
-            messageUser: 'Verifique seu email.',
-            error: false
-          });
-
-        })
-        .catch((error) => {
-          // const errorCode = error.code;
-          // const errorMessage = error.message;
-          setMessage({ messageUser: error.code, error: true });
-        });
-    }
-  };
+  const handleSubmit = async (event) => forgotPass(event, setMessage);
 
   return (
     <ThemeProvider theme={theme}>
