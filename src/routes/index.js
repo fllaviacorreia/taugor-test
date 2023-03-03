@@ -9,6 +9,7 @@ import ForgotPassword from '@/pages/auth/forgotPassword';
 import Employees from '@/pages/employee';
 
 import { isAuthenticated } from '@/config/auth';
+import CreateEmployee from '@/pages/employee/create';
 
 const PrivateRoute = () => (
   isAuthenticated() ? <Outlet /> : <Navigate to="/login" />
@@ -28,7 +29,7 @@ const Routes1 = () => (
         <Route exact path='/employees' element={<Employees />} />
       </Route>
       <Route path='/employees/create' element={<PrivateRoute />}>
-        <Route exact path='/employees/create' element={<Employees />} />
+        <Route exact path='/employees/create' element={<CreateEmployee />} />
       </Route>
       <Route path='/employees/edit/:id' element={<PrivateRoute />}>
         <Route exact path='/employees/edit/:id' element={<Employees />} />
