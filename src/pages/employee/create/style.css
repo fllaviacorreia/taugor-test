@@ -1,0 +1,13 @@
+.containerFormGeneral{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+.containerTable{
+    padding:20px;
+}
+
+.imageEmployee{
+    width: 100px;
+}
