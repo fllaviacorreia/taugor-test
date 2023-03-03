@@ -1,3 +1,5 @@
+import registerUser from "@/services/registerData";
+
 export const TOKEN_KEY = "@taugor-token";
 export const USER_KEY = "@taugor-user";
 
@@ -15,8 +17,14 @@ export const login = token => {
 
 export const setUser = user => {
   localStorage.setItem(USER_KEY, user);
+  registerUser();
+  removeUser();
 };
 
 export const logout = () => {
   localStorage.removeItem(TOKEN_KEY);
+};
+
+export const removeUser = () => {
+  localStorage.removeItem(USER_KEY);
 };
