@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { logout } from '@/config/auth';
 import { useNavigate } from 'react-router-dom';
+import deleteAccount from '@/services/delete/deleteAccount';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,10 +17,12 @@ export default function BasicMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+ 
  const navigate = useNavigate();
+
   const handleLogout = () => {
     logout();
-    navigate('login');
+    navigate('/login');
   };
 
   return (
@@ -44,6 +47,7 @@ export default function BasicMenu() {
       >
         <MenuItem onClick={handleClose}>Perfil</MenuItem>
         <MenuItem onClick={handleLogout}>Sair</MenuItem>
+        <MenuItem onClick={() => deleteAccount(handleLogout)}>Excluir conta</MenuItem>
       </Menu>
     </div>
   );

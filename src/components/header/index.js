@@ -40,8 +40,8 @@ function Header() {
               Taugor Teste
             </Typography>
             <List sx={{ display: 'flex', flexDirection: 'row'}}>
-              <ListItem sx={{width:120}}>
-                <Link className="linkItem" to={uri + "/home"}>
+              <ListItem sx={{width:80}}>
+                <Link className="linkItem" to={uri + "/"}>
                   <Typography
                     component="h6"
                     variant="h6"
@@ -64,6 +64,19 @@ function Header() {
                     sx={{ mr: '10px', width: '200px', fontSize: 12, color: 'rgb(25 118 210)' }}
                   >
                     Funcionários
+                  </Typography>
+                </Link>
+              </ListItem>
+              <ListItem sx={{width:150}}>
+                <Link className="linkItem" to={uri + "/employees-inactivated"}>
+                  <Typography
+                    component="h6"
+                    variant="h6"
+                    color="inherit"
+                    noWrap
+                    sx={{ mr: '10px', width: '200px', fontSize: 12, color: 'rgb(25 118 210)' }}
+                  >
+                    Funcionários inativados
                   </Typography>
                 </Link>
               </ListItem>
