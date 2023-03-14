@@ -1,8 +1,8 @@
 //o próprio usuário se cadsatra
-import { login, setUser } from '@/config/auth';
 import { auth } from '@/config/firebase';
+import registerData from '../create/registerDoc';
 
-async function register(event, setErrorMessage, navigate) {
+export default async function registerNewUser(event, setErrorMessage, navigate, incrementUser, userState) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
@@ -25,8 +25,8 @@ async function register(event, setErrorMessage, navigate) {
                     createdAt: new Date(),
                 }
                 
-                login(JSON.stringify(user.refreshToken));
-                setUser(JSON.stringify(configureUser));
+                incrementUser(configureUser);
+                registerData(userState);
                 navigate('/home');
             })
             .catch((error) => {
@@ -36,4 +36,3 @@ async function register(event, setErrorMessage, navigate) {
             });
     }
 }
-export default register;

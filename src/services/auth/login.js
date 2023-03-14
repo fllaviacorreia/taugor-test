@@ -1,4 +1,4 @@
-import { login } from '@/config/auth';
+import { login, setItem } from '@/config/auth';
 import { auth } from '@/config/firebase';
 
 async function loginUser(event, setErrorMessage, navigate) {
@@ -16,7 +16,8 @@ async function loginUser(event, setErrorMessage, navigate) {
             .then((userCredential) => {
                 const user = userCredential.user;
                 login(JSON.stringify(user.refreshToken));
-                navigate('/home');
+                setItem(user.email)
+                navigate('/');
             })
             .catch((error) => {
                 const errorCode = error.code;
