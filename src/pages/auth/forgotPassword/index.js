@@ -20,7 +20,7 @@ import GridLink from '@/components/elements/gridLink';
 import icon from '@/assets/taugor-icon.jpeg';
 
 import './style.css';
-import forgotPass from '@/services/forgotPass';
+import forgotPass from '@/services/auth/forgotPass';
 
 const theme = createTheme();
 

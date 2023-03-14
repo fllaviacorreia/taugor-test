@@ -10,7 +10,7 @@ import Copyright from '@/components/elements/copyright';
 import GridLink from '@/components/elements/gridLink';
 import icon from '@/assets/taugor-icon.jpeg';
 import './style.css';
-import loginUser from '@/services/login';
+import loginUser from '@/services/auth/login';
 
 const theme = createTheme();
 
@@ -18,6 +18,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = React.useState('');
   const uri = window.location.href.split('login')[0];
+
 
   const handleSubmit = async (event) => loginUser(event, setErrorMessage, navigate);
 
@@ -69,9 +70,9 @@ export default function Login() {
               <Grid>
                 <GridLink link={uri + "forgot-password"} title="Esqueci minha senha" />
               </Grid>
-              <Grid>
+              {/* <Grid>
                 <GridLink link={uri + "register"} title="Não possuo cadastro" />
-              </Grid>
+              </Grid> */}
             </Grid>
           </Box>
         </Box>

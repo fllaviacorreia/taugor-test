@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Avatar,
@@ -9,46 +9,56 @@ import {
   Grid,
   TextField,
   Typography,
-} from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+} from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import Copyright from '@/components/elements/copyright';
-import icon from '@/assets/taugor-icon.jpeg';
-import GridLink from '@/components/elements/gridLink';
-import { useNavigate } from 'react-router-dom';
+import Copyright from "@/components/elements/copyright";
+import icon from "@/assets/taugor-icon.jpeg";
+import GridLink from "@/components/elements/gridLink";
+import { useNavigate } from "react-router-dom";
 
-import register from '@/services/registerNewUser';
+import register from "@/services/registerNewUser";
+import useStore from "@/store";
 
 const theme = createTheme();
 
 export default function Register() {
   const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = React.useState('');
-  const uri = window.location.href.split('register')[0];
+  const [errorMessage, setErrorMessage] = React.useState("");
+  const uri = window.location.href.split("register")[0];
 
-  const handleSubmit = async (event) => register(event, setErrorMessage, navigate);
+  const incrementUser = useStore((state) => state.increaseUser);
+
+  const userState = useStore((state) => state.user);
+  const handleSubmit = async (event) =>
+    register(event, setErrorMessage, navigate, incrementUser, userState);
 
   return (
-    <ThemeProvider theme={ theme }>
+    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
-          sx={ {
+          sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          } }
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
         >
-          <Avatar sx={ { m: 1, bgcolor: 'secondary.main' } }>
-            <img src={ icon } alt="icon bussness" width={ 50 } />
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <img src={icon} alt="icon bussness" width={50} />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit } sx={ { mt: 3 } }>
-            <Grid container spacing={ 2 }>
-              <Grid item xs={ 12 } sm={ 6 }>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -59,7 +69,7 @@ export default function Register() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={ 12 } sm={ 6 }>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
@@ -69,7 +79,7 @@ export default function Register() {
                   autoComplete="family-name"
                 />
               </Grid>
-              <Grid item xs={ 12 }>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -80,7 +90,7 @@ export default function Register() {
                   autoComplete="email"
                 />
               </Grid>
-              <Grid item xs={ 12 }>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -91,16 +101,21 @@ export default function Register() {
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={ 12 } />
+              <Grid item xs={12} />
             </Grid>
-            <Typography component="h6" variant="h6" color={'red'} fontSize={15}>
+            <Typography component="h6" variant="h6" color={"red"} fontSize={15}>
               {errorMessage}
             </Typography>
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Cadastrar
             </Button>
             <Grid container justifyContent="flex-end">
-              <GridLink link={uri+"login"} title="Já possuo cadastro" />
+              <GridLink link={uri + "login"} title="Já possuo cadastro" />
             </Grid>
           </Box>
         </Box>
