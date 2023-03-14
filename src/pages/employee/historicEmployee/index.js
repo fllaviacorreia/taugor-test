@@ -1,5 +1,5 @@
 import { getUserByEmail, getUserById } from "@/services/consults";
-import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { PDFViewer } from "@react-pdf/renderer";
 import React from "react"
 import { useParams } from "react-router-dom";
 import Layout from "./layout";
@@ -26,15 +26,9 @@ export default function Historic() {
         return (
             <div className='containerHistoric'>
                 < span > Histórico</span >
-               {/* <PDFViewer className='containerHistoric'>
+               <PDFViewer className='containerHistoric'>
                     <Layout data={data} />
-                </PDFViewer> */}
-
-<PDFDownloadLink document={<Layout data={data} />} fileName="somename.pdf">
-      {({ blob, url, loading, error }) =>
-        loading ? 'Loading document...' : 'Download now!'
-      }
-    </PDFDownloadLink>
+                </PDFViewer> 
             </div >
         )
 
