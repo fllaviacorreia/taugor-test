@@ -18,7 +18,6 @@ async function alterByAdmin(data, setErrorMessage, userData) {
 }
 
 async function alterByEmployee(userData, id) {
-    console.log(id)
     await alterDoc(userData, id);
 }
 
