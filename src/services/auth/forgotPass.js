@@ -1,4 +1,5 @@
 import { auth } from "@/config/firebase";
+import VerifyErroCode from "../errorCode";
 
 export default async function forgotPass(event, setMessage) {
     event.preventDefault();
@@ -17,7 +18,8 @@ export default async function forgotPass(event, setMessage) {
                 });
             })
             .catch((error) => {
-                setMessage({ messageUser: error.code, error: true });
+                const errorText = VerifyErroCode(error.message)
+                setMessage({ messageUser: errorText, error: true });
             });
     }
 }

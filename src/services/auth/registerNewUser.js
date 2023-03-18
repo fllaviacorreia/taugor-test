@@ -1,6 +1,7 @@
 //o próprio usuário se cadsatra
 import { auth } from '@/config/firebase';
 import registerData from '../create/registerDoc';
+import VerifyErroCode from '../errorCode';
 
 export default async function registerNewUser(event, setErrorMessage, navigate, incrementUser, userState) {
     event.preventDefault();
@@ -30,9 +31,8 @@ export default async function registerNewUser(event, setErrorMessage, navigate, 
                 navigate('/home');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                // const errorMessage = error.message;
-                setErrorMessage(errorCode);
+                const errorText = VerifyErroCode(error.message)
+                setErrorMessage(errorText);
             });
     }
 }

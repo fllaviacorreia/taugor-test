@@ -1,5 +1,6 @@
 import { login, setItem } from '@/config/auth';
 import { auth } from '@/config/firebase';
+import VerifyErroCode from '../errorCode';
 
 async function loginUser(event, setErrorMessage, navigate) {
     event.preventDefault();
@@ -20,9 +21,8 @@ async function loginUser(event, setErrorMessage, navigate) {
                 navigate('/');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                // const errorMessage = error.message;
-                setErrorMessage(errorCode);
+                const errorText = VerifyErroCode(error.message)
+                setErrorMessage(errorText);
             });
     }
 }

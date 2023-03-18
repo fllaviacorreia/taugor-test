@@ -32,7 +32,7 @@ export default function Historic() {
             </div >
         )
 
-    }else{ return (  <>Erro</>  )
+    }else{ return (  <>Carregando...</>  )
 
     }
     
