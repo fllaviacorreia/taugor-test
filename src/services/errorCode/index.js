@@ -1,9 +1,5 @@
 const VerifyErroCode = (errorCode) => {
-
-    var resultadoString = errorCode.split('(');
-    var novo = resultadoString[1].split(')');
-  
-    switch (novo[0]) {
+    switch (errorCode) {
         case 'auth/app-deleted':
             return 'O banco de dados não foi localizado.';
         case 'auth/expired-action-code':
@@ -177,7 +173,7 @@ const VerifyErroCode = (errorCode) => {
         case 'auth/internal-error':
             return 'O servidor de autenticação encontrou um erro inesperado ao tentar processar a solicitação.';
         default:
-            return null;
+            return 'Ocorreu algum erro.';
     }
   }
   

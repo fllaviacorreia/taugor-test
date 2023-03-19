@@ -22,7 +22,7 @@ async function loginUser(event, setErrorMessage, navigate) {
             })
             .catch((error) => {
                 const errorText = VerifyErroCode(error.message)
-                setErrorMessage(errorText);
+                setErrorMessage(errorText)
             });
     }
 }
