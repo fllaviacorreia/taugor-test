@@ -1,6 +1,6 @@
 function VerifyErroCode(errorCode) {
   const error = errorCode.split("(")[1].split(".")[0];
-);
+
   switch (error) {
     case "auth/app-deleted":
       return "O banco de dados não foi localizado.";
