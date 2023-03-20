@@ -1,5 +1,6 @@
 ### - Configurando o projeto
  `git clone https://github.com/fllaviacorreia/taugor-test.git`
+ 
  `npm i`
  
 ### - Rodar o projeto
