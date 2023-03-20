@@ -1,15 +1,12 @@
-- Configurando o projeto
+### - Configurando o projeto
  `git clone https://github.com/fllaviacorreia/taugor-test.git`
  `npm i`
  
- - Rodar o projeto
+### - Rodar o projeto
  `npm start`
 
-- Rodar os testes
+### - Rodar os testes
  `npm test`
-
-- Iniciar build para deployment
- `npm run build`
 
 # TesteTaugor2023 
   
