@@ -1,16 +1,15 @@
-- Iniciar o projeto
-### `npm start`
+- Configurando o projeto
+ `git clone https://github.com/fllaviacorreia/taugor-test.git`
+ `npm i`
+ 
+ - Rodar o projeto
+ `npm start`
 
-- Iniciar os testes
-### `npm test`
+- Rodar os testes
+ `npm test`
 
 - Iniciar build para deployment
-### `npm run build`
-
-- Iniciar...
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ `npm run build`
 
 # TesteTaugor2023 
   
