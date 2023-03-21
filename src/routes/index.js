@@ -41,6 +41,10 @@ const Routes1 = () => (
       <Route path='/employees-inactivated/historic/:id' element={<PrivateRoute />}>
         <Route exact path='/employees-inactivated/historic/:id' element={<Historic />} />
       </Route>
+
+<Route path='/employees/historic/:id' element={<PrivateRoute />}>
+        <Route exact path='/employees/historic/:id' element={<Historic />} />
+      </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   </BrowserRouter>
