@@ -4,18 +4,21 @@
  `npm i`
 
  Configurar o arquivo .env com as variáveis. 
+
  
 ### Rodar o projeto
  `npm start`
 
+
 ### Rodar os testes
  `npm test`
 
+
 # TesteTaugor2023 
-  
  > Prova técnica para cargo de desenvolvedor na empresa Taugor 
   
- ### Especificações 
+
+### Especificações 
   
 - CADASTRO DE FUNCIONÁRIO: 
    - Manipulação de documento (PDF); 
@@ -33,7 +36,7 @@
    - Histórico do funcionário
 
 
- ### Pré-requisitos 
+### Pré-requisitos 
 
 1. O Front-End deve ser em React JS; 
 2. Os componentes devem ser function components, utilizando hooks; 
@@ -47,6 +50,7 @@
 7. Pode-se utilizar TypeScript, mas no mínimo JavaScript ES6; 
 8. Utilize uma lib externa para manipulação de documentos (PDF).
 
+
 ### Regras de negócio 
 
 - Usuário mestre: 
@@ -59,8 +63,10 @@
 
 - Usuários do tipo medium possuem conta e apenas eles podem excluir suas contas;
 
- <!-- ## 📝 Licença --> 
+
+<!-- ## 📝 Licença --> 
   
  <!-- Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes. --> 
+
   
  [⬆ Voltar ao topo](#nome-do-projeto)<br>
