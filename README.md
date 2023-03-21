@@ -14,9 +14,11 @@
  `npm test`
 
 
+
 ### TesteTaugor2023 
  > Prova técnica para cargo de desenvolvedor na empresa Taugor 
   
+
 
 ### Especificações 
   
@@ -36,6 +38,7 @@
    - Histórico do funcionário
 
 
+
 ### Pré-requisitos 
 
 1. O Front-End deve ser em React JS; 
@@ -50,6 +53,7 @@
 7. Pode-se utilizar TypeScript, mas no mínimo JavaScript ES6; 
 8. Utilize uma lib externa para manipulação de documentos (PDF). 
    - utilizando @react-pdf/renderer
+
 
 
 ### Regras de negócio 
