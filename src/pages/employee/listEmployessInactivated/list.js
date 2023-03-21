@@ -64,7 +64,7 @@ export default function CustomizedTables(rows, handleGoTo) {
                 <div className='containerButtonsAction'>
                   <Button
                   title="Ver histórico" 
-                  type-button='input-button-edit'
+                  type-button='input-button-info'
                   onClick={() => handleGoTo(`historic/${row.id}`)}
                   />
                 </div>
