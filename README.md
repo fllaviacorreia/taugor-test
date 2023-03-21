@@ -1,39 +1,39 @@
-### - Configurar o projeto
+### Configurar o projeto
  `git clone https://github.com/fllaviacorreia/taugor-test.git`
  
  `npm i`
 
  Configurar o arquivo .env com as variáveis. 
  
-### - Rodar o projeto
+### Rodar o projeto
  `npm start`
 
-### - Rodar os testes
+### Rodar os testes
  `npm test`
 
 # TesteTaugor2023 
   
  > Prova técnica para cargo de desenvolvedor na empresa Taugor 
   
- ### 📒 Especificações 
+ ### Especificações 
   
-CADASTRO DE FUNCIONÁRIO: 
-   ○ Manipulação de documento (PDF); 
-   ○ Sincronização de componentes; 
-   ○ Formulário com campos relacionados ao funcionário. 
-      ■ Informações de Contato: Nome, Sexo, Endereço, Telefone, Foto de Perfil, Data de aniversário 
-      ■ Informações do Funcionário: Cargo, Data de Admissão, Setor, Salário. 
-   ○ Validação de campos. 
+- CADASTRO DE FUNCIONÁRIO: 
+   - Manipulação de documento (PDF); 
+   - Sincronização de componentes; 
+   - Formulário com campos relacionados ao funcionário. 
+      - Informações de Contato: Nome, Sexo, Endereço, Telefone, Foto de Perfil, Data de aniversário 
+      - Informações do Funcionário: Cargo, Data de Admissão, Setor, Salário. 
+   - Validação de campos. 
 
-ATUALIZAÇÃO DE FUNCIONÁRIO: 
-   ○ Possibilidades de atualização de funcionário: 
-      ■ Atualizar informações de contato 
-      ■ Promover funcionário 
-      ■ Demitir ou terminar contrato com funcionário 
-   ○ Histórico do funcionário
+- ATUALIZAÇÃO DE FUNCIONÁRIO: 
+   - Possibilidades de atualização de funcionário: 
+      - Atualizar informações de contato 
+      - Promover funcionário 
+      - Demitir ou terminar contrato com funcionário 
+   - Histórico do funcionário
 
 
- ### 💻 Pré-requisitos 
+ ### Pré-requisitos 
 
 1. O Front-End deve ser em React JS; 
 2. Os componentes devem ser function components, utilizando hooks; 
@@ -50,6 +50,7 @@ ATUALIZAÇÃO DE FUNCIONÁRIO:
 ### Regras de negócio 
 
 - Usuário mestre: 
+   - administrador@taugor.teste.com
    - deve estar já cadastrado através do console do Firebase
    - único que pode criar novos usuários 
    - único que pode alterar o nível de acesso de minimum para médium.
