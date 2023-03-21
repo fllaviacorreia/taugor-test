@@ -79,7 +79,12 @@ export default function CustomizedTables(rows, handleGoTo) {
                     }
                     onClick={() => deleteDocument(row.id)}
                   />
-                </div>
+
+                  <Button
+                  title="Ver histórico" 
+                  type-button='input-button-info'
+                  onClick={() => handleGoTo(`historic/${row.id}`)}
+                  />                </div>
               </StyledTableCell>
             </StyledTableRow>
           ))}
