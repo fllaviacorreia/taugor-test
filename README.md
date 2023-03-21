@@ -41,9 +41,9 @@
 1. O Front-End deve ser em React JS; 
 2. Os componentes devem ser function components, utilizando hooks; 
 3. Utilize os seguintes recursos do Firebase (Google): 
-   ● Firestore- banco de dados; 
-   ● Storage- armazenamento de arquivos; 
-   ● Authentication- para cadastro e login de usuário. 
+   - Firestore- banco de dados; 
+   - Storage- armazenamento de arquivos; 
+   - Authentication- para cadastro e login de usuário. 
 4. Não é necessário utilizar Redux, mas pode usar se desejar; 
 5. Utilize pelo menos 1 componente em Material UI; 
 6. Pode-se optar por pré-compiladores de CSS, como SASS/SCSS, LESS, etc., mas é necessário utilizar pelo menos um arquivo CSS para customização; 
