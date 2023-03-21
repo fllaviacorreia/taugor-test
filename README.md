@@ -58,8 +58,9 @@
 
 ### Regras de negócio 
 
-- Usuário mestre: 
-   - administrador@taugor.teste.com
+- Usuário mestre para testar deploy: 
+   - email: administrador@taugor.teste.com 
+   - senha: administrador
    - deve estar já cadastrado através do console do Firebase
    - único que pode criar novos usuários 
    - único que pode alterar o nível de acesso de minimum para médium.
