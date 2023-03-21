@@ -20,7 +20,7 @@
 
 .input-button{
     color: #fff;
-    background-color: rgb(25 118 210);;
+    background-color: rgb(25, 118, 210);
     border: none;
 }
 
@@ -42,12 +42,12 @@
 
 
 .input-button-info{
-    background-color: rgb(0, 0, 255)
+    background-color: rgb(25, 118, 210);
 }
 
 .input-button:disabled , .input-button-delete:disabled, .input-button-edit:disabled, .input-button-info:disabled{
     color: #fff;
-    background-color: rgb(197, 201, 204);;
+    background-color: rgb(197, 201, 204);
     border: none;
     
 }
